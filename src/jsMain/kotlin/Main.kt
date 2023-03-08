@@ -33,7 +33,7 @@ fun main() {
                     alignItems(AlignItems.Center)
                     justifyContent(JustifyContent.Center)
                     backgroundImageUrl("https://raw.githubusercontent.com/razavioo/colorname.ir/main/src/jsMain/resources/background-top-bar.svg")
-                    width(100.vw)
+                    width(100.percent)
                     height(72.px)
                 }
             }) {
@@ -131,8 +131,8 @@ fun main() {
                     justifyContent(JustifyContent.Center)
                     backgroundSize("100% 100%")
                     backgroundImageUrl("https://raw.githubusercontent.com/razavioo/colorname.ir/main/src/jsMain/resources/background-main.png")
-                    width(100.vw)
-                    height(100.vh)
+                    width(100.percent)
+                    height(100.percent)
                 }
             }) {
                 Div({
@@ -145,7 +145,7 @@ fun main() {
                         height(auto)
                         backgroundImageUrl("https://raw.githubusercontent.com/razavioo/colorname.ir/main/src/jsMain/resources/background-center-box.svg")
                         borderRadius(32.px)
-                        padding(10.px)
+                        padding(32.px)
                     }
                 }) {
                     Div({
@@ -154,7 +154,7 @@ fun main() {
                             flexDirection(FlexDirection.Row)
                             alignItems(AlignItems.Center)
                             justifyContent(JustifyContent.Center)
-                            width(100.vw)
+                            width(100.percent)
                             height(auto)
                         }
                     }) {
@@ -174,29 +174,59 @@ fun main() {
                             flexDirection(FlexDirection.Row)
                             alignItems(AlignItems.Center)
                             justifyContent(JustifyContent.Center)
-                            width(100.vw)
+                            width(100.percent)
                             height(auto)
                         }
                     }) {
-                        Input(
-                            type = InputType.Color,
-                            attrs = {
-                                style {
-                                    width(120.px)
-                                    height(120.px)
-                                    border {
-                                        style(LineStyle.None)
+                        Div({
+                            style {
+                                position(Position.Relative)
+                                width(120.px)
+                                height(120.px)
+                            }
+                        }) {
+                            Input(
+                                type = InputType.Color,
+                                attrs = {
+                                    style {
+                                        border {
+                                            style(LineStyle.None)
+                                        }
+
+                                        width(100.percent)
+                                        height(100.percent)
+                                        position(Position.Absolute)
+                                    }
+                                    onInput { event ->
+                                        color = event.value
+                                        nearestColorName = nearest(color)
+                                        nearestColorNameFA = nearest(color, Language.FARSI)
+                                        furthestColorName = furthest(color)
+                                    }
+                                    value(color)
+                                }
+                            )
+
+                            // nearest color name with center text
+                            Span(
+                                {
+                                    style {
+                                        color(Color.white)
+                                        fontSize(15.px)
+                                        position(Position.Absolute)
+                                        bottom(0.px)
+                                        left(0.px)
+                                        right(0.px)
+                                        margin(4.px)
+                                        backgroundColor(Color.gray)
+                                        padding(4.px)
+                                        textAlign("center")
                                     }
                                 }
-                                onInput { event ->
-                                    color = event.value
-                                    nearestColorName = nearest(color)
-                                    nearestColorNameFA = nearest(color, Language.FARSI)
-                                    furthestColorName = furthest(color)
-                                }
-                                value(color)
+                            ) {
+                                Text(color.uppercase())
                             }
-                        )
+                        }
                     }
 
                     Div({
@@ -205,16 +235,17 @@ fun main() {
                             flexDirection(FlexDirection.Row)
                             alignItems(AlignItems.Center)
                             justifyContent(JustifyContent.Center)
-                            width(100.vw)
+                            width(100.percent)
                             height(auto)
                         }
                     }) {
                         P({
                             style {
                                 color(Color.white)
+                                flex(1)
                             }
                         }) {
-                            Text(nearestColorName.name)
+                            Text("${nearestColorName.name} (${nearestColorName.hex.uppercase()})")
                         }
 
                         Input(
@@ -244,16 +275,17 @@ fun main() {
                             flexDirection(FlexDirection.Row)
                             alignItems(AlignItems.Center)
                             justifyContent(JustifyContent.Center)
-                            width(100.vw)
+                            width(100.percent)
                             height(auto)
                         }
                     }) {
                         P({
                             style {
                                 color(Color.white)
+                                flex(1)
                             }
                         }) {
-                            Text(nearestColorNameFA.name)
+                            Text("${nearestColorNameFA.name} (${nearestColorNameFA.hex.uppercase()})")
                         }
 
                         Input(
