@@ -129,6 +129,7 @@ fun main() {
                     flexDirection(FlexDirection.Column)
                     alignItems(AlignItems.Center)
                     justifyContent(JustifyContent.Center)
+                    backgroundSize("100% 100%")
                     backgroundImageUrl("https://raw.githubusercontent.com/razavioo/colorname.ir/main/src/jsMain/resources/background-main.jpg")
                     width(100.vw)
                     height(100.vh)
