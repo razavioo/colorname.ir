@@ -3,10 +3,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import org.jetbrains.compose.web.attributes.InputType
 import org.jetbrains.compose.web.css.*
-import org.jetbrains.compose.web.dom.Div
-import org.jetbrains.compose.web.dom.Input
-import org.jetbrains.compose.web.dom.Span
-import org.jetbrains.compose.web.dom.Text
+import org.jetbrains.compose.web.dom.*
 import org.jetbrains.compose.web.renderComposable
 
 fun main() {
@@ -18,12 +15,85 @@ fun main() {
     renderComposable(rootElementId = "root") {
         Div({
             style {
-                display(DisplayStyle.Block)
+                display(DisplayStyle.Flex)
+                flexDirection(FlexDirection.Column)
                 backgroundColor(Color(furthestColorName.hex))
                 width(100.vw)
                 height(100.vh)
             }
         }) {
+            Div({
+                style {
+                    display(DisplayStyle.Flex)
+                    flexDirection(FlexDirection.Row)
+                    alignItems(AlignItems.Center)
+                    justifyContent(JustifyContent.Center)
+                    backgroundColor(Color("#AAAAAA"))
+                    width(100.vw)
+                    height(72.px)
+                }
+            }) {
+                Div({
+                    style {
+                        display(DisplayStyle.Flex)
+                        flex(1)
+                        justifyContent(JustifyContent.Start)
+                        alignItems(AlignItems.Center)
+                        marginLeft(120.px)
+                    }
+                }) {
+                    Span {
+                        Img(
+                            src = "https://raw.githubusercontent.com/razavioo/colorname.ir/main/src/jsMain/resources/logo.png",
+                            alt = "color-name-logo",
+                            attrs = {
+                                style {
+                                    width(40.px)
+                                    height(40.px)
+                                }
+                            }
+                        )
+                    }
+
+                    Span(
+                        {
+                            style {
+                                marginLeft(10.px)
+                                color(Color("#FFFFFF"))
+                            }
+                        }
+                    ) {
+                        Text("Color Name")
+                    }
+                }
+
+                Div({
+                    style {
+                        display(DisplayStyle.Flex)
+                        flex(1)
+                        justifyContent(JustifyContent.End)
+                        alignItems(AlignItems.Center)
+                        marginRight(120.px)
+                    }
+                }) {
+                    Span({
+                        style {
+                            color(Color("#FFFFFF"))
+                            marginRight(10.px)
+                        }
+                    }) {
+                        Text("Github")
+                    }
+
+                    Span({
+                        style {
+                            color(Color("#FFFFFF"))
+                        }
+                    }) {
+                        Text("Source Code")
+                    }
+                }
+            }
             Div({
                 style {
                     flexDirection(FlexDirection.Row)
