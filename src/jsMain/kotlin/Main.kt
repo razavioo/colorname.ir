@@ -129,6 +129,7 @@ fun main() {
                     flexDirection(FlexDirection.Column)
                     alignItems(AlignItems.Center)
                     justifyContent(JustifyContent.Center)
+                    backgroundImageUrl("https://raw.githubusercontent.com/razavioo/colorname.ir/main/src/jsMain/resources/background-main.jpg")
                     width(100.vw)
                     height(100.vh)
                 }
@@ -141,8 +142,8 @@ fun main() {
                         justifyContent(JustifyContent.Center)
                         width(500.px)
                         height(auto)
-                        backgroundColor(Color.white)
-                        borderRadius(10.px)
+                        backgroundImageUrl("https://raw.githubusercontent.com/razavioo/colorname.ir/ef1a34cc276efce76349b11044de687c54b7e45e/src/jsMain/resources/background-center-box.svg")
+                        borderRadius(32.px)
                         padding(10.px)
                     }
                 }) {
@@ -158,7 +159,7 @@ fun main() {
                     }) {
                         P({
                             style {
-                                color(Color.black)
+                                color(Color.white)
                             }
                         }) {
                             Text("Select a color to know it's name:")
@@ -208,7 +209,7 @@ fun main() {
                     }) {
                         P({
                             style {
-                                color(Color.black)
+                                color(Color.white)
                             }
                         }) {
                             Text(nearestColorName.name)
@@ -247,7 +248,7 @@ fun main() {
                     }) {
                         P({
                             style {
-                                color(Color.black)
+                                color(Color.white)
                             }
                         }) {
                             Text(nearestColorNameFA.name)
