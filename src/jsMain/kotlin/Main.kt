@@ -150,10 +150,10 @@ fun main() {
                             style {
                                 color(Color.white)
                                 fontSize(24.px)
-                                fontFamily("Sanchez")
+                                fontFamily("Sanchez", "serif")
                             }
                         }) {
-                            Text("Select a color to know it's name:")
+                            Text("Select a color to find it's name:")
                         }
                     }
 
@@ -209,7 +209,7 @@ fun main() {
                                         backgroundColor(Color.gray)
                                         padding(4.px)
                                         textAlign("center")
-                                        fontFamily("Sanchez")
+                                        fontFamily("Sanchez", "serif")
                                     }
                                 }
                             ) {
@@ -232,7 +232,7 @@ fun main() {
                         P({
                             style {
                                 color(Color.white)
-                                fontFamily("Sanchez")
+                                fontFamily("Sanchez", "serif")
                             }
                         }) {
                             Text(nearestColorName.name)
@@ -242,7 +242,7 @@ fun main() {
                             style {
                                 color(Color.white)
                                 marginLeft(4.px)
-                                fontFamily("Sanchez")
+                                fontFamily("Sanchez", "serif")
                             }
                         }) {
                             Text("(")
@@ -251,7 +251,7 @@ fun main() {
                         Span({
                             style {
                                 color(Color.white)
-                                fontFamily("Sanchez")
+                                fontFamily("Sanchez", "serif")
                             }
                         }) {
                             Text(nearestColorName.hex.uppercase())
@@ -261,7 +261,7 @@ fun main() {
                             style {
                                 color(Color.white)
                                 flex(1)
-                                fontFamily("Sanchez")
+                                fontFamily("Sanchez", "serif")
                             }
                         }) {
                             Text(")")
@@ -303,7 +303,7 @@ fun main() {
                         P({
                             style {
                                 color(Color.white)
-                                fontFamily("Actor")
+                                fontFamily("Vazirmatn", "sans-serif")
                             }
                         }) {
                             Text(nearestColorNameFA.name)
@@ -313,7 +313,7 @@ fun main() {
                             style {
                                 color(Color.white)
                                 marginLeft(4.px)
-                                fontFamily("Sanchez")
+                                fontFamily("Sanchez", "serif")
                             }
                         }) {
                             Text("(")
@@ -322,7 +322,7 @@ fun main() {
                         Span({
                             style {
                                 color(Color.white)
-                                fontFamily("Sanchez")
+                                fontFamily("Sanchez", "serif")
                             }
                         }) {
                             Text(nearestColorNameFA.hex.uppercase())
@@ -332,7 +332,7 @@ fun main() {
                             style {
                                 color(Color.white)
                                 flex(1)
-                                fontFamily("Sanchez")
+                                fontFamily("Sanchez", "serif")
                             }
                         }) {
                             Text(")")
