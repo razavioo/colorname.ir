@@ -11,7 +11,8 @@ import org.jetbrains.compose.web.dom.*
 import org.jetbrains.compose.web.renderComposable
 
 fun main() {
-    var color by mutableStateOf("#AAAAAA")
+    val hexColor = randomHexColor()
+    var color by mutableStateOf(hexColor)
     var nearestColorName by mutableStateOf(nearest(color))
     var nearestColorNameFA by mutableStateOf(nearest(color, Language.FARSI))
     var furthestColorName by mutableStateOf(furthest(color))
@@ -22,6 +23,8 @@ fun main() {
                 display(DisplayStyle.Flex)
                 flexDirection(FlexDirection.Column)
                 backgroundColor(Color(color))
+                backgroundSize("100% 100%")
+                backgroundImageUrl("https://raw.githubusercontent.com/razavioo/colorname.ir/main/src/jsMain/resources/background-main.png")
                 width(100.vw)
                 height(100.vh)
             }
@@ -113,8 +116,6 @@ fun main() {
                     flexDirection(FlexDirection.Column)
                     alignItems(AlignItems.Center)
                     justifyContent(JustifyContent.Center)
-                    backgroundSize("100% 100%")
-                    backgroundImageUrl("https://raw.githubusercontent.com/razavioo/colorname.ir/main/src/jsMain/resources/background-main.png")
                     width(100.percent)
                     height(100.percent)
                 }
@@ -125,11 +126,13 @@ fun main() {
                         flexDirection(FlexDirection.Column)
                         alignItems(AlignItems.Center)
                         justifyContent(JustifyContent.Center)
-                        width(50.percent)
+                        width(40.percent)
                         height(auto)
                         backgroundImageUrl("https://raw.githubusercontent.com/razavioo/colorname.ir/main/src/jsMain/resources/background-center-box.svg")
                         borderRadius(32.px)
                         padding(32.px)
+                        paddingLeft(64.px)
+                        paddingRight(64.px)
                     }
                 }) {
                     Div({
@@ -220,34 +223,62 @@ fun main() {
                             justifyContent(JustifyContent.Center)
                             width(100.percent)
                             height(auto)
+                            marginTop(16.px)
                         }
                     }) {
                         P({
                             style {
                                 color(Color.white)
+                            }
+                        }) {
+                            Text(nearestColorName.name)
+                        }
+
+                        Span({
+                            style {
+                                color(Color.white)
+                                marginLeft(4.px)
+                            }
+                        }) {
+                            Text("(")
+                        }
+
+                        Span({
+                            style {
+                                color(Color.white)
+                            }
+                        }) {
+                            Text(nearestColorName.hex.uppercase())
+                        }
+
+                        Span({
+                            style {
+                                color(Color.white)
                                 flex(1)
                             }
                         }) {
-                            Text("${nearestColorName.name} (${nearestColorName.hex.uppercase()})")
+                            Text(")")
                         }
 
-                        Input(
-                            type = InputType.Color,
+                        Button(
                             attrs = {
                                 style {
                                     width(32.px)
                                     height(32.px)
+                                    borderRadius(4.px)
                                     border {
-                                        style(LineStyle.None)
+                                        style(LineStyle.Solid)
+                                        width(2.px)
+                                        color(Color.white)
                                     }
+                                    backgroundColor(Color(nearestColorName.hex))
                                 }
-                                onInput { event ->
-                                    color = event.value
+                                onClick {
+                                    color = nearestColorName.hex
                                     nearestColorName = nearest(color)
                                     nearestColorNameFA = nearest(color, Language.FARSI)
                                     furthestColorName = furthest(color)
                                 }
-                                value(nearestColorName.hex)
                             }
                         )
                     }
@@ -296,23 +327,25 @@ fun main() {
                             Text(")")
                         }
 
-                        Input(
-                            type = InputType.Color,
+                        Button(
                             attrs = {
                                 style {
                                     width(32.px)
                                     height(32.px)
+                                    borderRadius(4.px)
                                     border {
-                                        style(LineStyle.None)
+                                        style(LineStyle.Solid)
+                                        width(2.px)
+                                        color(Color.white)
                                     }
+                                    backgroundColor(Color(nearestColorNameFA.hex))
                                 }
-                                onInput { event ->
-                                    color = event.value
+                                onClick {
+                                    color = nearestColorNameFA.hex
                                     nearestColorName = nearest(color)
                                     nearestColorNameFA = nearest(color, Language.FARSI)
                                     furthestColorName = furthest(color)
                                 }
-                                value(nearestColorNameFA.hex)
                             }
                         )
                     }
@@ -321,6 +354,8 @@ fun main() {
         }
     }
 }
+
+private fun randomHexColor() = "#${(0..0xFFFFFF).random().toString(16).padStart(6, '0')}"
 
 fun StyleScope.backgroundImageUrl(value: String) {
     property("background-image", "url($value)")
