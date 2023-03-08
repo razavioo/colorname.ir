@@ -52,8 +52,8 @@ fun main() {
                             alt = "color-name-logo",
                             attrs = {
                                 style {
-                                    width(40.px)
-                                    height(40.px)
+                                    width(32.px)
+                                    height(32.px)
                                 }
                             }
                         )
@@ -97,27 +97,11 @@ fun main() {
                                 alt = "github-logo",
                                 attrs = {
                                     style {
-                                        width(40.px)
-                                        height(40.px)
+                                        width(32.px)
+                                        height(32.px)
                                     }
                                 }
                             )
-                        }
-                    }
-
-                    Span({
-                        style {
-                            color(Color.white)
-                            fontSize(24.px)
-                        }
-                    }) {
-                        A(
-                            attrs = {
-                                href("https://github.com/razavioo/colorname.ir")
-                                target(ATarget.Blank)
-                            }
-                        ) {
-                            Text("Source Code")
                         }
                     }
                 }
@@ -281,10 +265,35 @@ fun main() {
                         P({
                             style {
                                 color(Color.white)
+                            }
+                        }) {
+                            Text(nearestColorNameFA.name)
+                        }
+
+                        Span({
+                            style {
+                                color(Color.white)
+                                marginLeft(4.px)
+                            }
+                        }) {
+                            Text("(")
+                        }
+
+                        Span({
+                            style {
+                                color(Color.white)
+                            }
+                        }) {
+                            Text(nearestColorNameFA.hex.uppercase())
+                        }
+
+                        Span({
+                            style {
+                                color(Color.white)
                                 flex(1)
                             }
                         }) {
-                            Text("${nearestColorNameFA.name} (${nearestColorNameFA.hex.uppercase()})")
+                            Text(")")
                         }
 
                         Input(
