@@ -207,7 +207,6 @@ fun main() {
                                 }
                             )
 
-                            // nearest color name with center text
                             Span(
                                 {
                                     style {
