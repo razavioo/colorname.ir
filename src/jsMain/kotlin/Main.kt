@@ -1,8 +1,12 @@
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import org.jetbrains.compose.web.attributes.ATarget
 import org.jetbrains.compose.web.attributes.InputType
+import org.jetbrains.compose.web.attributes.href
+import org.jetbrains.compose.web.attributes.target
 import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.keywords.auto
 import org.jetbrains.compose.web.dom.*
 import org.jetbrains.compose.web.renderComposable
 
@@ -28,7 +32,7 @@ fun main() {
                     flexDirection(FlexDirection.Row)
                     alignItems(AlignItems.Center)
                     justifyContent(JustifyContent.Center)
-                    backgroundColor(Color("#AAAAAA"))
+                    backgroundImageUrl("https://raw.githubusercontent.com/razavioo/colorname.ir/main/src/jsMain/resources/top-bar-filter.png")
                     width(100.vw)
                     height(72.px)
                 }
@@ -59,7 +63,8 @@ fun main() {
                         {
                             style {
                                 marginLeft(10.px)
-                                color(Color("#FFFFFF"))
+                                color(Color.white)
+                                fontSize(24.px)
                             }
                         }
                     ) {
@@ -70,7 +75,6 @@ fun main() {
                 Div({
                     style {
                         display(DisplayStyle.Flex)
-                        flex(1)
                         justifyContent(JustifyContent.End)
                         alignItems(AlignItems.Center)
                         marginRight(120.px)
@@ -78,62 +82,203 @@ fun main() {
                 }) {
                     Span({
                         style {
-                            color(Color("#FFFFFF"))
+                            color(Color.white)
                             marginRight(10.px)
                         }
                     }) {
-                        Text("Github")
+                        A(
+                            attrs = {
+                                href("https://github.com/razavioo/colorname.ir")
+                                target(ATarget.Blank)
+                            }
+                        ) {
+                            Img(
+                                src = "https://raw.githubusercontent.com/razavioo/colorname.ir/main/src/jsMain/resources/github-mark-white.png",
+                                alt = "github-logo",
+                                attrs = {
+                                    style {
+                                        width(40.px)
+                                        height(40.px)
+                                    }
+                                }
+                            )
+                        }
                     }
 
                     Span({
                         style {
-                            color(Color("#FFFFFF"))
+                            color(Color.white)
+                            fontSize(24.px)
                         }
                     }) {
-                        Text("Source Code")
+                        A(
+                            attrs = {
+                                href("https://github.com/razavioo/colorname.ir")
+                                target(ATarget.Blank)
+                            }
+                        ) {
+                            Text("Source Code")
+                        }
                     }
                 }
             }
+
             Div({
                 style {
-                    flexDirection(FlexDirection.Row)
+                    display(DisplayStyle.Flex)
+                    flexDirection(FlexDirection.Column)
                     alignItems(AlignItems.Center)
+                    justifyContent(JustifyContent.Center)
+                    width(100.vw)
+                    height(100.vh)
                 }
             }) {
-                Input(
-                    type = InputType.Color,
-                    attrs = {
+                Div({
+                    style {
+                        display(DisplayStyle.Flex)
+                        flexDirection(FlexDirection.Column)
+                        alignItems(AlignItems.Center)
+                        justifyContent(JustifyContent.Center)
+                        width(500.px)
+                        height(auto)
+                        backgroundColor(Color.white)
+                        borderRadius(10.px)
+                        padding(10.px)
+                    }
+                }) {
+                    Div({
                         style {
-                            width(100.px)
-                            height(100.px)
+                            display(DisplayStyle.Flex)
+                            flexDirection(FlexDirection.Row)
+                            alignItems(AlignItems.Center)
+                            justifyContent(JustifyContent.Center)
+                            width(100.vw)
+                            height(auto)
                         }
-                        onInput { event ->
-                            color = event.value
-                            nearestColorName = nearest(color)
-                            nearestColorNameFA = nearest(color, Language.FARSI)
-                            furthestColorName = furthest(color)
+                    }) {
+                        P({
+                            style {
+                                color(Color.black)
+                            }
+                        }) {
+                            Text("Select a color to know it's name:")
                         }
                     }
-                )
 
-                Span({
-                    style {
-                        color(Color(nearestColorName.hex))
-                        marginLeft(10.px)
+                    Div({
+                        style {
+                            display(DisplayStyle.Flex)
+                            flexDirection(FlexDirection.Row)
+                            alignItems(AlignItems.Center)
+                            justifyContent(JustifyContent.Center)
+                            width(100.vw)
+                            height(auto)
+                        }
+                    }) {
+                        Input(
+                            type = InputType.Color,
+                            attrs = {
+                                style {
+                                    width(120.px)
+                                    height(120.px)
+                                    border {
+                                        style(LineStyle.None)
+                                    }
+                                }
+                                onInput { event ->
+                                    color = event.value
+                                    nearestColorName = nearest(color)
+                                    nearestColorNameFA = nearest(color, Language.FARSI)
+                                    furthestColorName = furthest(color)
+                                }
+                                value(color)
+                            }
+                        )
                     }
-                }) {
-                    Text(nearestColorName.name)
-                }
 
-                Span({
-                    style {
-                        color(Color(nearestColorNameFA.hex))
-                        marginLeft(10.px)
+                    Div({
+                        style {
+                            display(DisplayStyle.Flex)
+                            flexDirection(FlexDirection.Row)
+                            alignItems(AlignItems.Center)
+                            justifyContent(JustifyContent.Center)
+                            width(100.vw)
+                            height(auto)
+                        }
+                    }) {
+                        P({
+                            style {
+                                color(Color.black)
+                            }
+                        }) {
+                            Text(nearestColorName.name)
+                        }
+
+                        Input(
+                            type = InputType.Color,
+                            attrs = {
+                                style {
+                                    width(32.px)
+                                    height(32.px)
+                                    border {
+                                        style(LineStyle.None)
+                                    }
+                                }
+                                onInput { event ->
+                                    color = event.value
+                                    nearestColorName = nearest(color)
+                                    nearestColorNameFA = nearest(color, Language.FARSI)
+                                    furthestColorName = furthest(color)
+                                }
+                                value(nearestColorName.hex)
+                            }
+                        )
                     }
-                }) {
-                    Text(nearestColorNameFA.name)
+
+                    Div({
+                        style {
+                            display(DisplayStyle.Flex)
+                            flexDirection(FlexDirection.Row)
+                            alignItems(AlignItems.Center)
+                            justifyContent(JustifyContent.Center)
+                            width(100.vw)
+                            height(auto)
+                        }
+                    }) {
+                        P({
+                            style {
+                                color(Color.black)
+                            }
+                        }) {
+                            Text(nearestColorNameFA.name)
+                        }
+
+                        Input(
+                            type = InputType.Color,
+                            attrs = {
+                                style {
+                                    width(32.px)
+                                    height(32.px)
+                                    border {
+                                        style(LineStyle.None)
+                                    }
+                                }
+                                onInput { event ->
+                                    color = event.value
+                                    nearestColorName = nearest(color)
+                                    nearestColorNameFA = nearest(color, Language.FARSI)
+                                    furthestColorName = furthest(color)
+                                }
+                                value(nearestColorNameFA.hex)
+                            }
+                        )
+                    }
                 }
             }
         }
     }
+}
+
+fun StyleScope.backgroundImageUrl(value: String) {
+    property("background-image", "url($value)")
 }
