@@ -21,7 +21,7 @@ fun main() {
             style {
                 display(DisplayStyle.Flex)
                 flexDirection(FlexDirection.Column)
-                backgroundColor(Color(furthestColorName.hex))
+                backgroundColor(Color(color))
                 width(100.vw)
                 height(100.vh)
             }
@@ -32,7 +32,7 @@ fun main() {
                     flexDirection(FlexDirection.Row)
                     alignItems(AlignItems.Center)
                     justifyContent(JustifyContent.Center)
-                    backgroundImageUrl("https://raw.githubusercontent.com/razavioo/colorname.ir/main/src/jsMain/resources/top-bar-filter.png")
+                    backgroundImageUrl("https://raw.githubusercontent.com/razavioo/colorname.ir/main/src/jsMain/resources/background-top-bar.svg")
                     width(100.vw)
                     height(72.px)
                 }
@@ -68,7 +68,7 @@ fun main() {
                             }
                         }
                     ) {
-                        Text("Color Name")
+                        Text("ColorName")
                     }
                 }
 
@@ -141,9 +141,9 @@ fun main() {
                         flexDirection(FlexDirection.Column)
                         alignItems(AlignItems.Center)
                         justifyContent(JustifyContent.Center)
-                        width(500.px)
+                        width(50.percent)
                         height(auto)
-                        backgroundImageUrl("https://raw.githubusercontent.com/razavioo/colorname.ir/ef1a34cc276efce76349b11044de687c54b7e45e/src/jsMain/resources/background-center-box.svg")
+                        backgroundImageUrl("https://raw.githubusercontent.com/razavioo/colorname.ir/main/src/jsMain/resources/background-center-box.svg")
                         borderRadius(32.px)
                         padding(10.px)
                     }
@@ -161,9 +161,10 @@ fun main() {
                         P({
                             style {
                                 color(Color.white)
+                                fontSize(24.px)
                             }
                         }) {
-                            Text("Select a color to know it's name:")
+                            Text("Select a color and check the name:")
                         }
                     }
 
