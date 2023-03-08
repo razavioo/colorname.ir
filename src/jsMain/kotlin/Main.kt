@@ -34,11 +34,12 @@ fun main() {
                 }
             })
 
-            Div( {
+            Div({
                 style {
                     position(Position.Absolute)
                     width(100.percent)
                     height(100.percent)
+                    opacity(0.5)
                     backgroundSize("100% 100%")
                     backgroundImageUrl("https://raw.githubusercontent.com/razavioo/colorname.ir/main/src/jsMain/resources/background-main.jpg")
                 }
@@ -294,8 +295,8 @@ fun main() {
                             Button(
                                 attrs = {
                                     style {
-                                        width(32.px)
-                                        height(32.px)
+                                        width(24.px)
+                                        height(24.px)
                                         borderRadius(4.px)
                                         border {
                                             style(LineStyle.Solid)
@@ -365,8 +366,8 @@ fun main() {
                             Button(
                                 attrs = {
                                     style {
-                                        width(32.px)
-                                        height(32.px)
+                                        width(24.px)
+                                        height(24.px)
                                         borderRadius(4.px)
                                         border {
                                             style(LineStyle.Solid)
@@ -377,6 +378,77 @@ fun main() {
                                     }
                                     onClick {
                                         color = nearestColorNameFA.hex
+                                        nearestColorName = nearest(color)
+                                        nearestColorNameFA = nearest(color, Language.FARSI)
+                                        furthestColorName = furthest(color)
+                                    }
+                                }
+                            )
+                        }
+
+                        Div({
+                            style {
+                                display(DisplayStyle.Flex)
+                                flexDirection(FlexDirection.Row)
+                                alignItems(AlignItems.Center)
+                                justifyContent(JustifyContent.Center)
+                                width(100.percent)
+                                height(auto)
+                            }
+                        }) {
+                            P({
+                                style {
+                                    color(Color.white)
+                                    fontFamily("Sanchez", "serif")
+                                }
+                            }) {
+                                Text("Complementary Color")
+                            }
+
+                            Span({
+                                style {
+                                    color(Color.white)
+                                    marginLeft(4.px)
+                                    fontFamily("Sanchez", "serif")
+                                }
+                            }) {
+                                Text("(")
+                            }
+
+                            Span({
+                                style {
+                                    color(Color.white)
+                                    fontFamily("Sanchez", "serif")
+                                }
+                            }) {
+                                Text(furthestColorName.hex.uppercase())
+                            }
+
+                            Span({
+                                style {
+                                    color(Color.white)
+                                    flex(1)
+                                    fontFamily("Sanchez", "serif")
+                                }
+                            }) {
+                                Text(")")
+                            }
+
+                            Button(
+                                attrs = {
+                                    style {
+                                        width(24.px)
+                                        height(24.px)
+                                        borderRadius(4.px)
+                                        border {
+                                            style(LineStyle.Solid)
+                                            width(2.px)
+                                            color(Color.white)
+                                        }
+                                        backgroundColor(Color(furthestColorName.hex))
+                                    }
+                                    onClick {
+                                        color = furthestColorName.hex
                                         nearestColorName = nearest(color)
                                         nearestColorNameFA = nearest(color, Language.FARSI)
                                         furthestColorName = furthest(color)
