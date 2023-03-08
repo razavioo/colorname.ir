@@ -67,7 +67,8 @@ fun main() {
                             style {
                                 marginLeft(10.px)
                                 color(Color.white)
-                                fontSize(24.px)
+                                fontSize(20.px)
+                                fontFamily("Pacifico")
                             }
                         }
                     ) {
@@ -149,9 +150,10 @@ fun main() {
                             style {
                                 color(Color.white)
                                 fontSize(24.px)
+                                fontFamily("Sanchez")
                             }
                         }) {
-                            Text("Select a color and check the name:")
+                            Text("Select a color to know it's name:")
                         }
                     }
 
@@ -207,6 +209,7 @@ fun main() {
                                         backgroundColor(Color.gray)
                                         padding(4.px)
                                         textAlign("center")
+                                        fontFamily("Sanchez")
                                     }
                                 }
                             ) {
@@ -229,6 +232,7 @@ fun main() {
                         P({
                             style {
                                 color(Color.white)
+                                fontFamily("Sanchez")
                             }
                         }) {
                             Text(nearestColorName.name)
@@ -238,6 +242,7 @@ fun main() {
                             style {
                                 color(Color.white)
                                 marginLeft(4.px)
+                                fontFamily("Sanchez")
                             }
                         }) {
                             Text("(")
@@ -246,6 +251,7 @@ fun main() {
                         Span({
                             style {
                                 color(Color.white)
+                                fontFamily("Sanchez")
                             }
                         }) {
                             Text(nearestColorName.hex.uppercase())
@@ -255,6 +261,7 @@ fun main() {
                             style {
                                 color(Color.white)
                                 flex(1)
+                                fontFamily("Sanchez")
                             }
                         }) {
                             Text(")")
@@ -296,6 +303,7 @@ fun main() {
                         P({
                             style {
                                 color(Color.white)
+                                fontFamily("Actor")
                             }
                         }) {
                             Text(nearestColorNameFA.name)
@@ -305,6 +313,7 @@ fun main() {
                             style {
                                 color(Color.white)
                                 marginLeft(4.px)
+                                fontFamily("Sanchez")
                             }
                         }) {
                             Text("(")
@@ -313,6 +322,7 @@ fun main() {
                         Span({
                             style {
                                 color(Color.white)
+                                fontFamily("Sanchez")
                             }
                         }) {
                             Text(nearestColorNameFA.hex.uppercase())
@@ -322,6 +332,7 @@ fun main() {
                             style {
                                 color(Color.white)
                                 flex(1)
+                                fontFamily("Sanchez")
                             }
                         }) {
                             Text(")")
