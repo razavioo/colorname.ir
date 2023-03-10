@@ -1,6 +1,6 @@
 # ColorName.ir 
 
-![any-audio-finder-cover](screenshot/screenshot.png)
+![any-audio-finder-cover](screenshot/screenshot.jpg)
 
 ColorName.ir is an open-source web application developed with Compose for Web, a reactive web UI framework for Kotlin, based on Google's modern toolkit and brought to you by JetBrains. 
 
