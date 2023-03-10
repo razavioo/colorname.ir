@@ -178,7 +178,7 @@ fun main() {
                                     fontFamily("Sanchez", "serif")
                                 }
                             }) {
-                                Text("Select a color to find it's name:")
+                                Text("Select a color to find its name:")
                             }
                         }
 
