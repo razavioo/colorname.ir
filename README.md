@@ -1,5 +1,7 @@
 # ColorName.ir 
 
+![any-audio-finder-cover](screenshot/screenshot.png)
+
 ColorName.ir is an open-source web application developed with Compose for Web, a reactive web UI framework for Kotlin, based on Google's modern toolkit and brought to you by JetBrains. 
 
 This website is designed to provide the user with the name of a specific color in both English and Farsi. Simply pick a color and the application will return the corresponding name for the color in both languages.
